@@ -5,22 +5,22 @@ import { CheckCircle, Shield, Users, Star } from "lucide-react";
 
 const points = [
   {
-    icon: <CheckCircle className="text-red-500" size={32} />,
+    icon: <CheckCircle size={36} />,
     title: "Certified & Experienced Instructors",
     description: "Learn from qualified teachers for languages, accounting, and IT courses.",
   },
   {
-    icon: <Shield className="text-red-500" size={32} />,
+    icon: <Shield size={36} />,
     title: "Trusted Institution",
     description: "Thousands of students trained for EPS, career growth, and international opportunities.",
   },
   {
-    icon: <Users className="text-red-500" size={32} />,
+    icon: <Users size={36} />,
     title: "Student-Focused Teaching",
     description: "Small batches, personalized guidance, and friendly learning environment.",
   },
   {
-    icon: <Star className="text-red-500" size={32} />,
+    icon: <Star size={36} />,
     title: "High Success Rate",
     description: "Strong track record in EPS exams, language tests & IT job placements.",
   },
@@ -29,7 +29,7 @@ const points = [
 export default function Whychoosesection() {
   return (
     <section className="w-full py-24 px-6 md:px-20 bg-white">
-      
+
       {/* Title */}
       <motion.h2
         initial={{ opacity: 0, y: 30 }}
@@ -49,12 +49,12 @@ export default function Whychoosesection() {
         viewport={{ once: true }}
         className="text-center mt-4 text-gray-600 max-w-2xl mx-auto text-lg"
       >
-        At DOS Multi Services, we help students build strong careers in language, accounting,
-        graphics, and full-stack development with expert training.
+        At DOS Multi Services, we help students build strong careers with expert,
+        modern, and high-quality training.
       </motion.p>
 
-      {/* Cards Grid */}
-      <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+      {/* Cards */}
+      <div className="mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
         {points.map((item, index) => (
           <motion.div
             key={index}
@@ -62,15 +62,39 @@ export default function Whychoosesection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: index * 0.1 }}
             viewport={{ once: true }}
-            className="bg-gray-50 p-8 rounded-2xl shadow-md border hover:shadow-red-200 hover:border-red-400 transition cursor-pointer"
+            className="
+              group bg-white/40 backdrop-blur-xl border border-white/60
+              shadow-lg rounded-3xl p-8 relative overflow-hidden
+              hover:shadow-2xl hover:shadow-red-300
+              transition-all duration-300 hover:-translate-y-2 hover:scale-[1.03]
+            "
           >
-            <div className="mb-4">{item.icon}</div>
+            {/* Glow Background */}
+            <div className="
+              absolute inset-0 opacity-0 group-hover:opacity-100
+              transition duration-300 bg-gradient-to-br
+              from-red-100/40 via-transparent to-red-200/40
+            " />
 
-            <h3 className="text-xl font-semibold text-gray-800 mb-2">
+            {/* Icon Circle */}
+            <div className="
+              w-16 h-16 rounded-2xl flex items-center justify-center mb-5
+              bg-white shadow-md group-hover:bg-red-600 transition duration-300
+              group-hover:text-white text-red-500
+            ">
+              {item.icon}
+            </div>
+
+            {/* Title */}
+            <h3 className="
+              text-xl font-semibold text-gray-900 mb-3
+              group-hover:text-red-600 transition
+            ">
               {item.title}
             </h3>
 
-            <p className="text-gray-600 leading-relaxed">
+            {/* Description */}
+            <p className="text-gray-600 group-hover:text-gray-800 transition">
               {item.description}
             </p>
           </motion.div>
