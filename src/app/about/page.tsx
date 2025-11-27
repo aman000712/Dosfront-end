@@ -2,6 +2,10 @@
 
 import { motion } from "framer-motion";
 import { Target, ShieldCheck, Users } from "lucide-react";
+import Image from "next/image";
+import { FaArrowLeft } from "react-icons/fa";
+import Link from "next/link";
+import backgroundImage from "../../../public/background.jpg";
 
 // FRAMER VARIANTS
 
@@ -51,14 +55,29 @@ export default function AboutPage() {
   return (
     <div className="w-full">
 
-      <section className="w-full py-32 bg-linear-to-r from-red-600 to-red-400 text-white text-center px-6">
+      <section className="relative h-[50vh] md:h-[70vh]">
+        <Image
+          className="w-full h-full object-cover"
+          src="/herosection.jpg"
+          alt="About Banner"
+          fill
+          priority
+        />
+
+        <div className="absolute inset-0 bg-black/40 md:bg-black/30"></div>
         <motion.div
+          className="absolute inset-0 flex flex-col items-center justify-center text-white px-4 text-center"
           variants={staggerParent}
           initial="hidden"
           animate="show"
+          transition={{ duration: 2 }}
         >
           <motion.h1
             variants={fadeUp}
+            transition={{
+              duration: 1.8,
+              ease: "easeOut",
+            }}
             className="text-5xl md:text-6xl font-extrabold"
           >
             About DOS Multi Services Pvt. Ltd.
@@ -66,12 +85,29 @@ export default function AboutPage() {
 
           <motion.p
             variants={fadeUp}
+            transition={{
+              duration: 2,
+              ease: "easeOut",
+            }}
+
             className="mt-4 text-lg md:text-xl max-w-3xl mx-auto text-white/90"
           >
             Empowering careers through international language training,
             professional accounting skills, and modern IT education.
           </motion.p>
         </motion.div>
+
+        <div className="absolute bottom-0 w-full py-2 flex gap-2 items-center justify-start backdrop-blur-2xl text-white px-14
+         bg-black/10 border-white/20 shadow-red-600/20">
+          <FaArrowLeft />
+          <button className="text-white font-medium hover:underline cursor-pointer">
+            <Link href="/"> Home</Link>
+          </button>
+          <h1>/</h1>
+          <h1 className="font-medium text-white underline underline-offset-2">
+            About
+          </h1>
+        </div>
       </section>
 
       <section className="py-20 px-6 md:px-20 bg-white">
@@ -158,15 +194,30 @@ export default function AboutPage() {
         </motion.div>
       </section>
 
-      <section className="py-20 bg-linear-to-r from-red-600 to-red-400 text-white text-center px-6">
+
+      <section className="relative py-20 h-[50vh] flex items-center justify-center text-white text-center px-6">
+        <div className="absolute inset-0 -z-10">
+          <Image
+            src={backgroundImage}
+            alt="Background"
+            fill
+            className="object-cover"
+
+          />
+          <div className="absolute inset-0 opacity-50 bg-black/50"></div>
+        </div>
+
+
         <motion.div
           variants={staggerParent}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
+          transition={{ duration: 2, staggerChildren: 0.3 }}   
         >
           <motion.h2
             variants={fadeUp}
+            transition={{ duration: 1.6, ease: "easeOut" }}    
             className="text-4xl md:text-5xl font-extrabold"
           >
             Ready to Start Your Learning Journey?
@@ -174,6 +225,7 @@ export default function AboutPage() {
 
           <motion.p
             variants={fadeUp}
+            transition={{ duration: 1.8, ease: "easeOut" }}
             className="mt-4 text-lg md:text-xl text-white/90"
           >
             Connect with us and take your first step toward a successful future.
@@ -181,14 +233,18 @@ export default function AboutPage() {
 
           <motion.button
             variants={fadeUp}
+            transition={{ duration: 2, ease: "easeOut" }}
             whileHover={{ scale: 1.08 }}
-            className="mt-8 px-10 py-4 bg-white text-red-600 font-bold rounded-full shadow-xl text-lg"
+            className="mt-8 px-6 py-3 bg-white text-red-600 font-bold rounded-full shadow-xl text-lg cursor-pointer"
           >
             Contact Us
           </motion.button>
         </motion.div>
+
+
       </section>
 
     </div>
   );
 }
+
