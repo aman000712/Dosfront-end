@@ -56,7 +56,7 @@ const whyChooseUs = [
 export default function AboutPage() {
   return (
     <div className="w-full">
-      <section className="w-full py-32 bg-linear-to-r from-red-600 to-red-400 text-white text-center px-6">
+      <section className="w-full relative py-32 bg-linear-to-r from-red-600 to-red-400 text-white text-center px-6">
         <motion.div variants={staggerParent} initial="hidden" animate="show">
           <motion.h1
             variants={fadeUp}
@@ -83,7 +83,7 @@ export default function AboutPage() {
           </motion.p>
         </motion.div>
 
-        <div className="absolute bottom-0 w-full py-2 flex gap-2 items-center justify-start backdrop-blur-2xl text-white px-14
+        <div className="absolute bottom-0 w-full left-0 py-2 flex gap-2 items-center  backdrop-blur-2xl text-white px-14
          bg-black/10 border-white/20 shadow-red-600/20">
           <FaArrowLeft />
           <button className="text-white font-medium hover:underline cursor-pointer">
