@@ -5,6 +5,8 @@ import { Target, ShieldCheck, Users } from "lucide-react";
 import { GrView } from "react-icons/gr";
 import { MdTextsms } from "react-icons/md";
 import Image from "next/image";
+import { FaArrowLeft } from "react-icons/fa";
+import Link from "next/link";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
