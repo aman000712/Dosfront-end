@@ -72,7 +72,7 @@ export default function Whychoosesection() {
             {/* Glow Background */}
             <div className="
               absolute inset-0 opacity-0 group-hover:opacity-100
-              transition duration-300 bg-gradient-to-br
+              transition duration-300 bg-linear-to-br
               from-red-100/40 via-transparent to-red-200/40
             " />
 

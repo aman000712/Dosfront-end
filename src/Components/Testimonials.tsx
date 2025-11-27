@@ -1,9 +1,7 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Quote } from "lucide-react";
 
 const testimonials = [
   {
@@ -27,75 +25,70 @@ const testimonials = [
     review:
       "Amazing course! I built real-world projects and improved my coding skills. Highly recommended for IT students.",
   },
+  {
+    name: "Nirajan Magar",
+    image: "/students/sample.jpg",
+    course: "Web Development",
+    review:
+      "The instructors helped me build real projects and boosted my confidence.",
+  },
 ];
 
 export default function TestimonialCards() {
-  const [active, setActive] = useState<number | null>(null);
-
   return (
-    <section className="py-24 bg-gray-50">
-      <h2 className="text-center text-5xl font-extrabold text-gray-900">
-        Student <span className="text-red-600">Testimonials</span>
+    <section className="py-24  text-white overflow-hidden">
+      <h2 className="text-center text-5xl font-extrabold">
+        Student <span className="text-red-500">Testimonials</span>
       </h2>
 
-      <p className="text-center mt-4 text-gray-600 max-w-2xl mx-auto text-lg">
-        Hear what our students say about their learning experience.
+      <p className="text-center text-gray-400 max-w-2xl mx-auto mt-4">
+        Hear what our students say about their experience with us.
       </p>
 
-      {/* Card Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-20 px-10">
-        {testimonials.map((item, i) => (
-          <motion.div
-            key={i}
-            onMouseEnter={() => setActive(i)}
-            onMouseLeave={() => setActive(null)}
-            whileHover={{ scale: 1.05, rotateX: 5, rotateY: -5 }}
-            transition={{ type: "spring", stiffness: 150, damping: 12 }}
-            className={`
-              relative p-8 rounded-3xl cursor-pointer backdrop-blur-xl
-              shadow-xl border border-white/60 bg-white/70 
-              transform-gpu
-              ${
-                active !== null && active !== i
-                  ? "blur-sm opacity-40"
-                  : "opacity-100"
-              }
-            `}
-          >
-            {/* Glow spotlight */}
-            {active === i && (
-              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-red-500/20 to-transparent blur-2xl"></div>
-            )}
+      {/* Infinite Scroll Wrapper */}
+      <div className="relative mt-20">
+        <motion.div
+          className="flex gap-10 whitespace-nowrap"
+          animate={{
+            x: ["0%", "-100%"],
+          }}
+          transition={{
+            repeat: Infinity,
+            duration: 18,
+            ease: "linear",
+          }}
+        >
+          {testimonials.map((item, i) => (
+            <div
+              key={i}
+              className="
+              bg-linear-r from-red-400 to-red-900 
+                rounded-3xl p-6 w-[330px] h-[260px]
+                shadow-lg hover:shadow-red-500/20
+                transition backdrop-blur-xl
+              "
+            >
+              <p className="text-gray-200 italic text-sm leading-relaxed">
+                “{item.review}”
+              </p>
 
-            {/* Quote Icon */}
-            <Quote className="text-red-500 mb-4 opacity-70" size={36} />
+              <div className="flex items-center gap-4 mt-6">
+                <Image
+                  src={item.image}
+                  width={60}
+                  height={60}
+                  className="rounded-full object-cover border border-white/10"
+                  alt={item.name}
+                />
 
-            {/* Image */}
-            <div className="w-24 h-24 mx-auto rounded-full overflow-hidden shadow-md border-4 border-white mb-6">
-              <Image
-                src={item.image}
-                width={100}
-                height={100}
-                alt={item.name}
-                className="object-cover"
-              />
+                <div>
+                  <h3 className="font-semibold text-white">{item.name}</h3>
+                  <p className="text-red-400 text-sm">{item.course}</p>
+                </div>
+              </div>
             </div>
-
-            {/* Review */}
-            <p className="text-gray-700 italic mb-6 text-center">
-              "{item.review}"
-            </p>
-
-            {/* Name */}
-            <h3 className="text-xl font-semibold text-gray-900 text-center">
-              {item.name}
-            </h3>
-
-            <p className="text-red-600 text-center font-medium">
-              {item.course}
-            </p>
-          </motion.div>
-        ))}
+          ))}
+        </motion.div>
       </div>
     </section>
   );
