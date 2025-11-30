@@ -2,11 +2,12 @@
 
 import { motion } from "framer-motion";
 import { Target, ShieldCheck, Users } from "lucide-react";
-import { GrView } from "react-icons/gr";
-import { MdTextsms } from "react-icons/md";
 import Image from "next/image";
 import { FaArrowLeft } from "react-icons/fa";
 import Link from "next/link";
+import backgroundImage from "../../../public/background.jpg";
+
+// FRAMER VARIANTS
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -56,8 +57,24 @@ const whyChooseUs = [
 export default function AboutPage() {
   return (
     <div className="w-full">
-      <section className="w-full relative py-32 bg-linear-to-r from-red-600 to-red-400 text-white text-center px-6">
-        <motion.div variants={staggerParent} initial="hidden" animate="show">
+
+      <section className="relative h-[50vh] md:h-[70vh]">
+        <Image
+          className="w-full h-full object-cover"
+          src="/herosection.jpg"
+          alt="About Banner"
+          fill
+          priority
+        />
+
+        <div className="absolute inset-0 bg-black/40 md:bg-black/30"></div>
+        <motion.div
+          className="absolute inset-0 flex flex-col items-center justify-center text-white px-4 text-center"
+          variants={staggerParent}
+          initial="hidden"
+          animate="show"
+          transition={{ duration: 2 }}
+        >
           <motion.h1
             variants={fadeUp}
             transition={{
@@ -223,7 +240,20 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="py-20 bg-linear-to-r from-red-500 to-red-200 text-white text-center px-6">
+
+      <section className="relative py-20 h-[50vh] flex items-center justify-center text-white text-center px-6">
+        <div className="absolute inset-0 -z-10">
+          <Image
+            src={backgroundImage}
+            alt="Background"
+            fill
+            className="object-cover"
+
+          />
+          <div className="absolute inset-0 opacity-50 bg-black/50"></div>
+        </div>
+
+
         <motion.div
           variants={staggerParent}
           initial="hidden"
@@ -249,8 +279,9 @@ export default function AboutPage() {
 
           <motion.button
             variants={fadeUp}
-            whileHover={{ scale: 1.06 }}
-            className="mt-8 px-10 py-4 bg-white text-red-600 font-bold rounded-full shadow-xl text-lg cursor-pointer duration-500 "
+            transition={{ duration: 2, ease: "easeOut" }}
+            whileHover={{ scale: 1.08 }}
+            className="mt-8 px-6 py-3 bg-white text-red-600 font-bold rounded-full shadow-xl text-lg cursor-pointer"
           >
             Contact Us
           </motion.button>
