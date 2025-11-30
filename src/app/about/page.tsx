@@ -9,7 +9,7 @@ import backgroundImage from "../../../public/background.jpg";
 import { GrView } from "react-icons/gr";
 import { MdTextsms } from "react-icons/md";
 
-// FRAMER VARIANTS
+import Testimonials from "@/Components/Testimonials";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -56,10 +56,42 @@ const whyChooseUs = [
   },
 ];
 
+const founders = [
+  {
+    name: "Mrs. Rajeshwori Mehta",
+    title: "Chaiperson",
+    image: "/human1.jpg",
+  },
+  {
+    name: "Prof. Tika Devi",
+    title: "Academic Head",
+    image: "/human2.jpg",
+  },
+  {
+    name: "Mrs. Neeta Sharma",
+    title: "Founder and Dean",
+    image: "/human3.jpg",
+  },
+  {
+    name: "Mr. Rajesh Bhandari",
+    title: "Co-Founder",
+    image: "/human1.jpg",
+  },
+  {
+    name: "Miss Aarati Thapa",
+    title: "Member",
+    image: "/human2.jpg",
+  },
+  {
+    name: "Mrs. Bijaya Kunwar",
+    title: "Memeber",
+    image: "/human3.jpg",
+  },
+];
+
 export default function AboutPage() {
   return (
     <div className="w-full">
-
       <section className="relative h-[50vh] md:h-[70vh]">
         <Image
           className="w-full h-full object-cover"
@@ -83,7 +115,7 @@ export default function AboutPage() {
               duration: 1.8,
               ease: "easeOut",
             }}
-            className="text-5xl md:text-6xl font-extrabold"
+            className="text-4xl md:text-6xl font-extrabold"
           >
             About DOS Multi Services Pvt. Ltd.
           </motion.h1>
@@ -94,16 +126,17 @@ export default function AboutPage() {
               duration: 2,
               ease: "easeOut",
             }}
-
-            className="mt-4 text-lg md:text-xl max-w-3xl mx-auto text-white/90"
+            className="mt-4 text-sm md:text-xl max-w-3xl mx-auto text-white/90"
           >
             Empowering careers through international language training,
             professional accounting skills, and modern IT education.
           </motion.p>
         </motion.div>
 
-        <div className="absolute bottom-0 w-full left-0 py-2 flex gap-2 items-center  backdrop-blur-2xl text-white px-14
-         bg-black/10 border-white/20 shadow-red-600/20">
+        <div
+          className="absolute bottom-0 w-full left-0 py-2 flex gap-2 items-center  backdrop-blur-2xl text-white px-14
+         bg-black/10 border-white/20 shadow-red-600/20"
+        >
           <FaArrowLeft />
           <button className="text-white font-medium hover:underline cursor-pointer">
             <Link href="/"> Home</Link>
@@ -115,82 +148,75 @@ export default function AboutPage() {
         </div>
       </section>
 
-      
       <section className="py-20 px-6 md:px-24 bg-gray-200 w-full h-full">
-  <motion.div
-    variants={staggerParent}
-    initial="hidden"
-    whileInView="show"
-    viewport={{ once: true }}
-    className="flex flex-col md:flex-row gap-12 text-center  md:text-left"
-  >
-  
-    <motion.div
-      variants={fadeUp}
-      className="flex flex-col bg-white rounded-lg shadow-md cursor-pointer hover:scale-102 duration-700 transition-all hover:shadow-2xl overflow-hidden"
-    >
-    
-      <div className="h-48 md:h-60 w-full">
-        <img
-          src="/image.jpg"
-          alt="Our Mission"
-          className="w-full h-full object-cover "
-        />
-      </div>
+        <motion.div
+          variants={staggerParent}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="flex flex-col md:flex-row gap-12 text-justify  md:text-left"
+        >
+          <motion.div
+            variants={fadeUp}
+            className="flex flex-col bg-white rounded-lg shadow-md cursor-pointer hover:scale-102 duration-700 transition-all hover:shadow-2xl overflow-hidden"
+          >
+            <div className="h-48 md:h-60 w-full">
+              <img
+                src="/image.jpg"
+                alt="Our Mission"
+                className="w-full h-full object-cover "
+              />
+            </div>
 
-    
-      <div className="p-6 md:p-6 flex flex-col gap-2">
-        <div className="flex items-center gap-4 ">
-          <h1 className="text-3xl text-red-600 mt-2">
-            <GrView />
-          </h1>
-          <motion.h2 className="text-2xl md:text-3xl font-bold text-red-600">
-            Our Mission
-          </motion.h2>
-        </div>
-        <motion.p className="mt-4 text-gray-700 text-lg leading-relaxed">
-          To deliver job-oriented, high-quality, and practical education
-          that prepares individuals to compete globally across languages,
-          accounting, and IT fields.
-        </motion.p>
-      </div>
-    </motion.div>
+            <div className="p-6 md:p-6 flex flex-col gap-2">
+              <div className="flex items-center gap-4 ">
+                <h1 className="text-3xl text-red-600 mt-2">
+                  <GrView />
+                </h1>
+                <motion.h2 className="text-2xl md:text-3xl font-bold text-red-600">
+                  Our Mission
+                </motion.h2>
+              </div>
+              <motion.p className="mt-4 text-gray-700 text-lg leading-relaxed">
+                To deliver job-oriented, high-quality, and practical education
+                that prepares individuals to compete globally across languages,
+                accounting, and IT fields.
+              </motion.p>
+            </div>
+          </motion.div>
 
-  
-    <motion.div
-      variants={fadeUp}
-      className="flex flex-col bg-white rounded-lg shadow-md overflow-hidden cursor-pointer hover:scale-102 duration-700 transition-all  hover:shadow-2xl"
-    >
+          <motion.div
+            variants={fadeUp}
+            className="flex flex-col bg-white rounded-lg shadow-md overflow-hidden cursor-pointer hover:scale-102 duration-700 transition-all  hover:shadow-2xl"
+          >
+            <div className="h-48 md:h-60 w-full">
+              <img
+                src="/image.jpg"
+                alt="Our Vision"
+                className="w-full h-full object-cover"
+              />
+            </div>
 
-      <div className="h-48 md:h-60 w-full">
-        <img
-          src="/image.jpg"
-          alt="Our Vision"
-          className="w-full h-full object-cover"
-        />
-      </div>
-
-
-      <div className="p-6 md:p-6 flex flex-col gap-2">
-        <div className="flex items-center gap-4">
-          <h1 className="text-3xl text-red-600 mt-2">
-            <MdTextsms />
-          </h1>
-          <motion.h2 className="text-2xl md:text-3xl font-bold text-red-600">
-            Our Vision
-          </motion.h2>
-        </div>
-        <motion.p className="mt-4 text-gray-700 text-lg leading-relaxed">
-          To empower students with skills and knowledge to succeed in a
-          rapidly changing global environment and create impactful careers
-          in diverse industries.
-        </motion.p>
-      </div>
-    </motion.div>
-  </motion.div>
-</section>
-
-      <section className="md:py-20 py-12 w-full mx-auto   px-6 md:px-20  ">
+            <div className="p-6 md:p-6 flex flex-col gap-2">
+              <div className="flex items-center gap-4">
+                <h1 className="text-3xl text-red-600 mt-2">
+                  <MdTextsms />
+                </h1>
+                <motion.h2 className="text-2xl md:text-3xl font-bold text-red-600">
+                  Our Vision
+                </motion.h2>
+              </div>
+              <motion.p className="mt-4 text-gray-700 text-lg leading-relaxed">
+                To empower students with skills and knowledge to succeed in a
+                rapidly changing global environment and create impactful careers
+                in diverse industries.
+              </motion.p>
+            </div>
+          </motion.div>
+        </motion.div>
+      </section>
+           <Testimonials/>
+      <section className="md:py-20 py-6 w-full mx-auto   px-2 md:px-20  ">
         <motion.h2
           initial="hidden"
           whileInView="show"
@@ -201,7 +227,7 @@ export default function AboutPage() {
           Why Students <span className="text-red-600"> Choose Us</span>
         </motion.h2>
 
-        <div className="mt-16 flex flex-col md:flex-row items-center h-fit justify-center gap-6">
+        <div className="mt-16 flex flex-col md:flex-row items-center  justify-center gap-6">
           <motion.div
             initial="hidden"
             whileInView="show"
@@ -223,13 +249,13 @@ export default function AboutPage() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
-            className="w-1/2 flex flex-col gap-6"
+            className="md:w-1/2 w-11/12  flex flex-col gap-6"
           >
             {whyChooseUs.map((item, i) => (
               <motion.div
                 key={i}
                 variants={cardUp}
-                className="px-6 bg-gray-100 py-2 flex gap-4 rounded-2xl shadow hover:shadow-xl transition-all hover:scale-102 cursor-pointer duration-700"
+                className="md:px-6 px-3 bg-red-100 py-2 flex gap-4 w-full md:w-fit rounded-2xl shadow hover:shadow-xl transition-all hover:scale-102 cursor-pointer duration-700"
               >
                 <div className="my-4 flex text-center ">{item.icon}</div>
                 <div>
@@ -242,6 +268,44 @@ export default function AboutPage() {
         </div>
       </section>
 
+      <section className="relative py-16 h-full flex flex-col items-center justify-start gap-8 text-black text-center bg-gray-100 ">
+        <div className="flex flex-col items-center justify-start mx-auto gap-4 h-fit  w-full ">
+          <h1 className="md:text-5xl  text-3xl font-bold "> Our Team</h1>
+          <p className="text-gray-500 text-lg">
+            This is the team member section of our institution who have given
+            their contributions
+          </p>
+        </div>
+
+        <div className="py-6 md:py-8 overflow-hidden w-11/13 grid grid-cols-1 md:grid-cols-3 gap-10 h-full  md:px-8 px-4">
+          {founders.map((founder, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 1, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: idx * 0.15 }}
+              viewport={{ once: true }}
+              className="py-6 rounded-2xl  bg-linear-to-r from-red-100 to-white cursor-pointer shadow hover:shadow-xl hover:scale-105 transition duration-700"
+            >
+              <div className="relative w-24 h-24 mx-auto mb-2 rounded-full overflow-hidden border-gray-600 border-2">
+                <Image
+                  src={founder.image}
+                  alt={founder.name}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+
+              <h3 className="text-xl text-gray-700 font-semibold">
+                {founder.name}
+              </h3>
+              <p className="text-gray-500 font-medium pb-2">{founder.title}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+     
+
 
       <section className="relative py-20 h-[50vh] flex items-center justify-center text-white text-center px-6">
         <div className="absolute inset-0 -z-10">
@@ -250,22 +314,20 @@ export default function AboutPage() {
             alt="Background"
             fill
             className="object-cover"
-
           />
           <div className="absolute inset-0 opacity-50 bg-black/50"></div>
         </div>
-
 
         <motion.div
           variants={staggerParent}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          transition={{ duration: 2, staggerChildren: 0.3 }}   
+          transition={{ duration: 2, staggerChildren: 0.3 }}
         >
           <motion.h2
             variants={fadeUp}
-            transition={{ duration: 1.6, ease: "easeOut" }}    
+            transition={{ duration: 1.6, ease: "easeOut" }}
             className="text-4xl md:text-5xl font-extrabold"
           >
             Ready to Start Your Learning Journey?
@@ -288,10 +350,7 @@ export default function AboutPage() {
             Contact Us
           </motion.button>
         </motion.div>
-
-
       </section>
     </div>
   );
 }
-

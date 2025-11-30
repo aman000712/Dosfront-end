@@ -39,9 +39,9 @@ const testimonial = [
   },
 ];
 
-export default function TestimonialCards() {
+export default function Testimonials() {
   return (
-    <section className="py-24 text-white overflow-hidden bg-linear-to-b from-gray-200 to-gray-100">
+    <section className="py-24 text-white overflow-hidden bg-linear-to-b from-gray-300 to-gray-100">
       <h2 className="text-center text-5xl font-extrabold text-gray-900">
         Student's <span className="text-red-500">Testimonials</span>
       </h2>
