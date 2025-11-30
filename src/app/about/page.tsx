@@ -6,6 +6,8 @@ import Image from "next/image";
 import { FaArrowLeft } from "react-icons/fa";
 import Link from "next/link";
 import backgroundImage from "../../../public/background.jpg";
+import { GrView } from "react-icons/gr";
+import { MdTextsms } from "react-icons/md";
 
 // FRAMER VARIANTS
 
